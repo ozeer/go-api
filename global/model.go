@@ -17,7 +17,7 @@ const (
 	DATE_TEMPLATE = "2006-01-02 15:04:05"
 )
 
-type GVA_MODEL struct {
+type MODEL struct {
 	ID        uint           `json:"id" gorm:"primarykey"` // 主键ID
 	CreatedAt LocalTime      `json:"created_at"`           // 创建时间
 	UpdatedAt LocalTime      `json:"updated_at"`           // 更新时间
