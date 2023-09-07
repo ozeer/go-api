@@ -40,6 +40,8 @@ func main() {
 		db, _ := global.DB.DB()
 		defer db.Close()
 	}
+	// 初始化雪花ID生成器
+	initialize.SnowFlakeIdServer()
 
 	// 启动Server
 	core.RunWindowsServer()

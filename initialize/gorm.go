@@ -4,7 +4,7 @@ import (
 	"os"
 
 	"github.com/ozeer/go-api/global"
-	"github.com/ozeer/go-api/model/system"
+	"github.com/ozeer/go-api/model/user"
 
 	"go.uber.org/zap"
 	"gorm.io/gorm"
@@ -26,8 +26,9 @@ func Gorm() *gorm.DB {
 func RegisterTables() {
 	db := global.DB
 	err := db.AutoMigrate(
-		// 系统模块表
-		system.JwtBlacklist{},
+		// 用户模块表
+		user.User{},
+		user.UserExtend{},
 	)
 	if err != nil {
 		global.LOG.Error("register table failed", zap.Error(err))

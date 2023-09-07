@@ -5,6 +5,7 @@ import (
 
 	"github.com/ozeer/go-api/utils/timer"
 	"github.com/songzhibin97/gkit/cache/local_cache"
+	"github.com/sony/sonyflake"
 
 	"golang.org/x/sync/singleflight"
 
@@ -30,6 +31,8 @@ var (
 
 	BlackCache local_cache.Cache
 	lock       sync.RWMutex
+
+	SF *sonyflake.Sonyflake
 )
 
 // GetGlobalDBByDBName 通过名称获取db list中的db

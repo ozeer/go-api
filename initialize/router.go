@@ -5,24 +5,16 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/ozeer/go-api/global"
-	"github.com/ozeer/go-api/middleware"
 	"github.com/ozeer/go-api/router"
 )
 
 // 初始化总路由
 func Routers() *gin.Engine {
-	gin.SetMode(gin.ReleaseMode)
+	// gin.SetMode(gin.ReleaseMode)
 	Router := gin.Default()
+	userRouter := router.RouterGroupApp.User
 	systemRouter := router.RouterGroupApp.System
-	// 如果想要不使用nginx代理前端网页，可以修改 web/.env.production 下的
-	// VUE_APP_BASE_API = /
-	// VUE_APP_BASE_PATH = http://localhost
-	// 然后执行打包命令 npm run build。在打开下面3行注释
-	// Router.Static("/favicon.ico", "./dist/favicon.ico")
-	// Router.Static("/assets", "./dist/assets")   // dist里面的静态资源
-	// Router.StaticFile("/", "./dist/index.html") // 前端网页入口页面
 
-	Router.StaticFS(global.CONFIG.Local.StorePath, http.Dir(global.CONFIG.Local.StorePath)) // 为用户头像和文件提供静态地址
 	// Router.Use(middleware.LoadTls())  // 如果需要使用https 请打开此中间件 然后前往 core/server.go 将启动模式 更变为 Router.RunTLS("端口","你的cre/pem文件","你的key文件")
 	// 跨域，如需跨域可以打开下面的注释
 	// Router.Use(middleware.Cors()) // 直接放行全部跨域请求
@@ -42,9 +34,10 @@ func Routers() *gin.Engine {
 
 	}
 	PrivateGroup := Router.Group(global.CONFIG.System.RouterPrefix)
-	PrivateGroup.Use(middleware.JWTAuth())
+	// PrivateGroup.Use(middleware.JWTAuth())
 	{
-		// system相关路由
+		// 用户相关路由
+		userRouter.InitUserRouter(PrivateGroup)
 		systemRouter.InitSystemRouter(PrivateGroup)
 	}
 

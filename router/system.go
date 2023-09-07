@@ -8,10 +8,10 @@ import (
 type SystemRouter struct{}
 
 func (e *SystemRouter) InitSystemRouter(Router *gin.RouterGroup) (R gin.IRoutes) {
-	systemRouter := Router.Group("base")
-	jwtApi := api.ApiGroupApp.AuthApiGroup.JwtApi
+	systemRouter := Router.Group("system")
+	systemApi := api.ApiGroupApp.SystemApiGroup.SnowFlakeApi
 	{
-		systemRouter.POST("check", jwtApi.Check)
+		systemRouter.GET("genId", systemApi.GenId)
 	}
 	return systemRouter
 }

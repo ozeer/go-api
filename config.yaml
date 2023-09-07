@@ -60,7 +60,7 @@ mysql:
     username: root
     password: "123456"
     prefix: ""
-    singular: false
+    singular: true
     engine: ""
     max-idle-conns: 10
     max-open-conns: 100
@@ -80,7 +80,7 @@ system:
     iplimit-count: 15000
     iplimit-time: 3600
     router-prefix: ""
-    app-name: "gva"
+    app-name: "go-api"
 timer:
     start: true
     spec: '@daily'
