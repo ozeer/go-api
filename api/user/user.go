@@ -43,7 +43,7 @@ func (u *UserApi) Register(c *gin.Context) {
 
 	// 用户信息
 	if registerInfo.UserName == "" {
-		registerInfo.UserName = utils.GenNick()
+		registerInfo.UserName = utils.GenNewNick(uid)
 	}
 
 	ip, err := utils.GetIP(c.Request)

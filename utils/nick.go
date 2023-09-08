@@ -4,6 +4,8 @@ import (
 	"math/rand"
 	"sync"
 	"time"
+
+	sq "github.com/sqids/sqids-go"
 )
 
 const (
@@ -62,4 +64,13 @@ func GenNick() string {
 	nickname := nickPrefix + generator.GenerateNickname()
 
 	return nickname
+}
+
+func GenNewNick(uid uint64) string {
+	s, _ := sq.New(sq.Options{
+		MinLength: 6,
+	})
+	id, _ := s.Encode([]uint64{uid})
+
+	return id
 }

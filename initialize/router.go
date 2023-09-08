@@ -3,6 +3,7 @@ package initialize
 import (
 	"net/http"
 
+	"github.com/gin-contrib/pprof"
 	"github.com/gin-gonic/gin"
 	"github.com/ozeer/go-api/global"
 	"github.com/ozeer/go-api/router"
@@ -12,6 +13,8 @@ import (
 func Routers() *gin.Engine {
 	// gin.SetMode(gin.ReleaseMode)
 	Router := gin.Default()
+	pprof.Register(Router)
+
 	userRouter := router.RouterGroupApp.User
 	systemRouter := router.RouterGroupApp.System
 
