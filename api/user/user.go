@@ -15,9 +15,9 @@ type UserApi struct{}
 
 // 注册接口
 func (u *UserApi) Register(c *gin.Context) {
+	// 数据绑定
 	var registerInfo request.RegisterInfo
 
-	// 数据绑定
 	err := c.ShouldBindJSON(&registerInfo)
 	if err != nil {
 		response.FailWithMessage(err.Error(), c)
@@ -47,17 +47,16 @@ func (u *UserApi) Register(c *gin.Context) {
 	}
 
 	ip, err := utils.GetIP(c.Request)
-
 	if err != nil {
 		global.LOG.Error("获取IP地址失败!", zap.Error(err))
 	}
 
-	userInfo.Uid = uid                        // 封装生成uid的方法
-	userInfo.UserName = registerInfo.UserName // 生成随机用户名
-	userInfo.Phone = registerInfo.Phone       // 加密，防止用户敏感信息泄漏
-	userInfo.Password = registerInfo.Password // 加密后写入
-	userInfo.Email = registerInfo.Email       // 邮箱
-	userInfo.Ip = ip                          // 封装获取ip的方法
+	userInfo.Uid = uid                                          // 封装生成uid的方法
+	userInfo.UserName = registerInfo.UserName                   // 生成随机用户名
+	userInfo.Phone = registerInfo.Phone                         // 加密，防止用户敏感信息泄漏
+	userInfo.Password = utils.BcryptHash(registerInfo.Password) // 加密后写入
+	userInfo.Email = registerInfo.Email                         // 邮箱
+	userInfo.Ip = ip                                            // 封装获取ip的方法
 
 	// 用户扩展信息
 	userExtendInfo.Uid = uid
@@ -85,6 +84,7 @@ func (u *UserApi) Register(c *gin.Context) {
 		response.FailWithMessage("创建失败:"+err.Error(), c)
 		return
 	}
+
 	response.OkWithMessage("创建成功", c)
 }
 
