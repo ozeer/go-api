@@ -6,23 +6,26 @@ import (
 	"fmt"
 	"io"
 	"log"
+	"math/rand"
 	"net/http"
 	"testing"
+	"time"
 
 	"github.com/brianvoe/gofakeit/v6"
 	"github.com/ozeer/go-api/model/common/response"
+	"github.com/ozeer/go-api/utils"
 )
 
-func TestDemo(t *testing.T) {
-	for i := 0; i < 20; i++ {
+func TestRegister(t *testing.T) {
+	for i := 0; i < 1200; i++ {
 		// 创建一个包含JSON数据的map
 		data := map[string]interface{}{
-			"username": "堂吉柯德",
+			// "username": "堂吉柯德",
 			"phone":    gofakeit.Phone(),
 			"password": "12345",
 			"email":    gofakeit.Email(),
-			"sex":      1,
-			"birthday": "2000-09-18",
+			"sex":      rand.New(rand.NewSource(time.Now().UnixNano())).Intn(3),
+			"birthday": utils.GenerateRandomDate(1949, 2023),
 		}
 
 		// 将map转换为JSON格式

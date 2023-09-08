@@ -7,9 +7,11 @@ import (
 )
 
 const (
-	nickPrefix   = "outpost_"
-	prefixLength = 4 // 设置前缀长度
+	nickPrefix = "outpost_"
+	// 设置前缀长度
+	prefixLength = 4
 	charset      = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	digitSet     = "0123456789"
 )
 
 var (
@@ -42,12 +44,15 @@ func (ng *NicknameGenerator) GenerateNickname() string {
 }
 
 func (ng *NicknameGenerator) generateRandomPrefix() string {
-	rand.Seed(time.Now().UnixNano())
+	randNew := rand.New(rand.NewSource(time.Now().UnixNano()))
 
 	prefix := make([]byte, prefixLength)
 	for i := range prefix {
-		prefix[i] = charset[rand.Intn(len(charset))]
+		prefix[i] = charset[randNew.Intn(len(charset))]
 	}
+
+	// 添加一个随机数字作为后缀，确保唯一性
+	prefix = append(prefix, digitSet[randNew.Intn(len(digitSet))])
 
 	return string(prefix)
 }

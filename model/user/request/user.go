@@ -1,7 +1,7 @@
 package request
 
 type RegisterInfo struct {
-	UserName string `json:"user_name" form:"user_name" gorm:"comment:用户名"`
+	UserName string `json:"username" form:"username" gorm:"comment:用户名"`
 	Phone    string `json:"phone" form:"phone" gorm:"comment:用户手机号"`
 	Password string `json:"password" form:"password" gorm:"comment:密码"`
 	Email    string `json:"email" form:"email" gorm:"comment:邮箱"`
