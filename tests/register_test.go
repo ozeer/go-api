@@ -17,7 +17,7 @@ import (
 )
 
 func TestRegister(t *testing.T) {
-	for i := 0; i < 20; i++ {
+	for i := 0; i < 200000; i++ {
 		// 创建一个包含JSON数据的map
 		data := map[string]interface{}{
 			// "username": "堂吉柯德",
