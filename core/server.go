@@ -6,6 +6,7 @@ import (
 
 	"github.com/ozeer/go-api/global"
 	"github.com/ozeer/go-api/initialize"
+	"go.uber.org/zap"
 )
 
 type server interface {
@@ -26,6 +27,6 @@ func RunWindowsServer() {
 	address := fmt.Sprintf(":%d", global.CONFIG.System.Addr)
 	s := initServer(address, Router)
 	time.Sleep(10 * time.Microsecond)
-	global.LOG.Info("server run success on " + address)
+	global.LOG.Info("server run success!", zap.String("port", address))
 	global.LOG.Error(s.ListenAndServe().Error())
 }
