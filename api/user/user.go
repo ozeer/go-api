@@ -34,19 +34,15 @@ func (u *UserApi) Register(c *gin.Context) {
 	}
 
 	// 邮箱可选参数，如果填了就校验
-	if registerInfo.Email != "" {
-		if err = utils.Verify(registerInfo.Email, utils.EmailVerify); err != nil {
-			response.FailWithMessage(err.Error(), c)
-			return
-		}
+	if registerInfo.Email != "" && !utils.RegexpVerify(utils.REGEXP_EMAIL, registerInfo.Email) {
+		response.FailWithMessage("邮箱格式不对", c)
+		return
 	}
 
 	// 出生日期可选
-	if registerInfo.Birthday != "" {
-		if err = utils.Verify(registerInfo.Birthday, utils.BirthdayVerify); err != nil {
-			response.FailWithMessage("出生日期格式不对", c)
-			return
-		}
+	if registerInfo.Birthday != "" && !utils.RegexpVerify(utils.REGEXP_DATE, registerInfo.Birthday) {
+		response.FailWithMessage("出生日期格式不对", c)
+		return
 	}
 
 	// 性别检查

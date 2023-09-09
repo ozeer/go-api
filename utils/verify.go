@@ -1,5 +1,7 @@
 package utils
 
+import "regexp"
+
 // 常用正则校验格式
 var (
 	// 微信号（6至20位，以字母开头，可包含字母、数字、减号和下划线，如：wechat01）
@@ -54,6 +56,8 @@ var (
 	OldAuthorityVerify     = Rules{"OldAuthorityId": {NotEmpty()}}
 	ChangePasswordVerify   = Rules{"Password": {NotEmpty()}, "NewPassword": {NotEmpty()}}
 	SetUserAuthorityVerify = Rules{"AuthorityId": {NotEmpty()}}
-	EmailVerify            = Rules{"Email": {NotEmpty(), RegexpMatch(REGEXP_EMAIL)}}
-	BirthdayVerify         = Rules{"Birthday": {NotEmpty(), RegexpMatch(REGEXP_DATE)}}
 )
+
+func RegexpVerify(rule, matchStr string) bool {
+	return regexp.MustCompile(rule).MatchString(matchStr)
+}
