@@ -10,6 +10,12 @@ var AgeGroups = map[string]int{
 	"above_50": 0,
 }
 
+const (
+	UN_KNOW = 0
+	MALE    = 1
+	FEMALE  = 2
+)
+
 type UserExtend struct {
 	global.MODEL
 	Uid      uint64 `json:"uid" form:"uid" gorm:"uniqueIndex:uniq_idx_uid;comment:用户uid"`

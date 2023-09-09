@@ -33,6 +33,28 @@ func (u *UserApi) Register(c *gin.Context) {
 		return
 	}
 
+	// 邮箱可选参数，如果填了就校验
+	if registerInfo.Email != "" {
+		if err = utils.Verify(registerInfo.Email, utils.EmailVerify); err != nil {
+			response.FailWithMessage(err.Error(), c)
+			return
+		}
+	}
+
+	// 出生日期可选
+	if registerInfo.Birthday != "" {
+		if err = utils.Verify(registerInfo.Birthday, utils.BirthdayVerify); err != nil {
+			response.FailWithMessage("出生日期格式不对", c)
+			return
+		}
+	}
+
+	// 性别检查
+	if registerInfo.Sex != user.UN_KNOW && registerInfo.Sex != user.MALE && registerInfo.Sex != user.FEMALE {
+		response.FailWithMessage("性别设置有误", c)
+		return
+	}
+
 	// 数据初始化
 	var userInfo user.User
 	var userExtendInfo user.UserExtend
@@ -83,7 +105,7 @@ func (u *UserApi) Register(c *gin.Context) {
 
 	if err != nil {
 		global.LOG.Error("创建失败!", zap.Error(err))
-		response.FailWithMessage("创建失败:"+err.Error(), c)
+		response.FailWithMessage("创建失败", c)
 		return
 	}
 
