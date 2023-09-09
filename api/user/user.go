@@ -1,6 +1,8 @@
 package user
 
 import (
+	"sort"
+
 	"github.com/gin-gonic/gin"
 	"github.com/ozeer/go-api/global"
 	"github.com/ozeer/go-api/model/common/response"
@@ -88,7 +90,23 @@ func (u *UserApi) Register(c *gin.Context) {
 	response.OkWithMessage("创建成功", c)
 }
 
+type Person struct {
+	AgeGroup string
+	Num      int
+}
+
 // 用户分析接口: 按年龄段统计注册用户数。如20岁以下，20-30，30-40，40-50，50以上。按数量从大到小排序。
 func (u *UserApi) Analysis(c *gin.Context) {
+	data := analysisService.GetAnalysisUserByAge()
 
+	var persons []Person
+	for k, v := range data {
+		persons = append(persons, Person{k, utils.StringToInt(v)})
+	}
+
+	sort.Slice(persons, func(i, j int) bool {
+		return persons[i].Num > persons[j].Num
+	})
+
+	response.OkWithDetailed(persons, "获取成功", c)
 }

@@ -2,6 +2,14 @@ package user
 
 import "github.com/ozeer/go-api/global"
 
+var AgeGroups = map[string]int{
+	"under_20": 0,
+	"20-30":    0,
+	"30-40":    0,
+	"40-50":    0,
+	"above_50": 0,
+}
+
 type UserExtend struct {
 	global.MODEL
 	Uid      uint64 `json:"uid" form:"uid" gorm:"uniqueIndex:uniq_idx_uid;comment:用户uid"`

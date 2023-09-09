@@ -6,12 +6,12 @@ import "github.com/urfave/cli/v2"
 // name: 命令名
 // usage: 使用方式说明
 // f: 执行函数
-func CreateCommand(name, usage string, f func(firstArg string)) *cli.Command {
+func CreateCommand(name, usage string, f func(args cli.Args)) *cli.Command {
 	return &cli.Command{
 		Name:  name,
 		Usage: usage,
 		Action: func(cCtx *cli.Context) error {
-			f(cCtx.Args().First())
+			f(cCtx.Args())
 			return nil
 		},
 	}
