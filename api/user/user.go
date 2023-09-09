@@ -88,7 +88,7 @@ func (u *UserApi) Register(c *gin.Context) {
 	response.OkWithMessage("创建成功", c)
 }
 
-// 用户分析接口
+// 用户分析接口: 按年龄段统计注册用户数。如20岁以下，20-30，30-40，40-50，50以上。按数量从大到小排序。
 func (u *UserApi) Analysis(c *gin.Context) {
 
 }
