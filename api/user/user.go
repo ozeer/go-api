@@ -91,8 +91,8 @@ func (u *UserApi) Register(c *gin.Context) {
 }
 
 type Person struct {
-	AgeGroup string
-	Num      int
+	AgeGroup string `json:"age_group"`
+	Num      int    `json:"num"`
 }
 
 // 用户分析接口: 按年龄段统计注册用户数。如20岁以下，20-30，30-40，40-50，50以上。按数量从大到小排序。
