@@ -1,0 +1,378 @@
+{
+	"info": {
+		"_postman_id": "dceb0157-f2e5-4d61-af2f-d56886c66559",
+		"name": "Go-Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "基础API（开放）",
+			"item": [
+				{
+					"name": "获取验证码",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8d1ac9ee-4205-4ac5-9b50-4c1acf1dd039",
+								"exec": [
+									"let template = `",
+									"<img src='{{img}}'/>",
+									"`;",
+									"",
+									"pm.visualizer.set(template, { ",
+									"    img: pm.response.json().data.picPath",
+									"});",
+									"",
+									"console.log(pm.response.json().data.picPath)",
+									"",
+									"pm.collectionVariables.set(\"captchaId\", pm.response.json().data.captchaId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "5e611d80-307b-4117-8c8f-056178ab26c6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:8888/base/captcha"
+					},
+					"response": []
+				},
+				{
+					"name": "用户注册",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8d1ac9ee-4205-4ac5-9b50-4c1acf1dd039",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "7d357081-dc24-4229-96ac-42810cf7b33c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"堂吉KL\",\n    \"phone\": \"18701588479\",\n    \"password\": \"123489ky\",\n    \"email\": \"zhouyang@2021163.com\",\n    \"sex\": 2,\n    \"birthday\": \"2000-09-18\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8888/base/register"
+					},
+					"response": [
+						{
+							"id": "4c673ed5-789c-4c8d-ae8d-41bbf8bde746",
+							"name": "用户注册",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"堂吉KL\",\n    \"phone\": \"18701588479\",\n    \"password\": \"123489ky\",\n    \"email\": \"zhouyang@2021163.com\",\n    \"sex\": 2,\n    \"birthday\": \"2000-09-18\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8888/base/register"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 10 Sep 2023 17:34:58 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "220"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"code\": 0,\n    \"data\": {\n        \"user\": {\n            \"id\": 1,\n            \"created_at\": {},\n            \"updated_at\": {},\n            \"uuid\": \"aa186a0a-cc48-453d-b4db-4ef3517052e1\",\n            \"userName\": \"堂吉KL\",\n            \"phone\": \"18701588479\",\n            \"email\": \"zhouyang@2021163.com\",\n            \"enable\": 1\n        }\n    },\n    \"msg\": \"注册成功\"\n}"
+						}
+					]
+				},
+				{
+					"name": "注册（我的）",
+					"_postman_id": "2a011db3-4497-4783-9d0c-120f9f7d05cd",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"堂吉柯德\",\n    \"phone\": \"18701588479\",\n    \"password\": \"123489ky\",\n    \"email\": \"zhouyang@2021163.com\",\n    \"sex\": 2,\n    \"birthday\": \"2000-09-18\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": "http://localhost:8888/user/register"
+					},
+					"response": []
+				},
+				{
+					"name": "唯一id生成器",
+					"_postman_id": "1b77c71e-5242-4cca-8bae-1860728abc62",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"堂吉柯德\",\n    \"phone\": \"18701588472\",\n    \"password\": \"12345\",\n    \"email\": \"zhouyang2021@163.com\",\n    \"sex\": 1,\n    \"birthday\": \"2000-09-18\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": "http://localhost:8888/base/genId"
+					},
+					"response": []
+				},
+				{
+					"name": "用户登录",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8d1ac9ee-4205-4ac5-9b50-4c1acf1dd039",
+								"exec": [
+									"pm.collectionVariables.set(\"token\", pm.response.json().data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "cc91b67b-d482-4f96-96a2-4765b5e8cfbf",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"堂吉KL\",\n    \"password\": \"123489ky\",\n    \"captcha\": \"923078\",\n    \"captchaId\": \"{{captchaId}}\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": "http://localhost:8888/base/login"
+					},
+					"response": [
+						{
+							"id": "280fc9aa-30d0-4639-b159-3e5c4506944b",
+							"name": "验证码错误",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"堂吉KL\",\n    \"password\": \"123489ky\",\n    \"captcha\": \"198989\",\n    \"captchaId\": \"9rJtsMC9MByXh8YCymot\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": "http://localhost:8888/base/login"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 10 Sep 2023 17:36:42 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"code\": 7,\n    \"data\": {},\n    \"msg\": \"验证码错误\"\n}"
+						},
+						{
+							"id": "ffec4798-4f03-4ba7-a0a4-ae18cb90a24e",
+							"name": "登录成功",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"堂吉KL\",\n    \"password\": \"123489ky\",\n    \"captcha\": \"656995\",\n    \"captchaId\": \"{{captchaId}}\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": "http://localhost:8888/base/login"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 10 Sep 2023 17:56:04 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "572"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"code\": 0,\n    \"data\": {\n        \"user\": {\n            \"id\": 1,\n            \"created_at\": {},\n            \"updated_at\": {},\n            \"uuid\": \"aa186a0a-cc48-453d-b4db-4ef3517052e1\",\n            \"userName\": \"堂吉KL\",\n            \"phone\": \"18701588479\",\n            \"email\": \"zhouyang@2021163.com\",\n            \"enable\": 1\n        },\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVVUlEIjoiYWExODZhMGEtY2M0OC00NTNkLWI0ZGItNGVmMzUxNzA1MmUxIiwiSUQiOjEsIlVzZXJuYW1lIjoi5aCC5ZCJS0wiLCJOaWNrTmFtZSI6IiIsIkJ1ZmZlclRpbWUiOjg2NDAwLCJpc3MiOiJxbVBsdXMiLCJhdWQiOlsiR08tQVBJIl0sImV4cCI6MTY5NDk3MzM2NCwibmJmIjoxNjk0MzY4NTY0fQ.bkuJbgRuqN1yoldPy5n0TJN2UYa8mSC8YJH2WKtTWKc\",\n        \"expiresAt\": 1694973364000\n    },\n    \"msg\": \"登录成功\"\n}"
+						}
+					]
+				}
+			],
+			"_postman_id": "2fad4f21-bdf2-475a-a5c8-2d32dac6233c"
+		},
+		{
+			"name": "鉴权API",
+			"item": [
+				{
+					"name": "用户分析",
+					"_postman_id": "1d1e4ea8-3640-41a3-97b0-759bd58b8260",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"堂吉柯德.KIN\",\n    \"phone\": \"18701588471\",\n    \"password\": \"12345\",\n    \"email\": \"zhouyang2021@163.com\",\n    \"sex\": 1,\n    \"birthday\": \"2000-09-18\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": "http://localhost:8888/user/analysis"
+					},
+					"response": []
+				}
+			],
+			"_postman_id": "0ed6f524-d7a6-41a0-b113-e490cca2a704"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "716b229b-fef5-49dc-872a-1eb59298510d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "b4996a87-8bb6-469c-ba40-61287aaa0e30",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "839e20f3-0b6f-40be-9037-933a24c80f5a",
+			"key": "variable_key",
+			"value": "",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"id": "168772ce-41e1-4dc1-940b-94a6325e1299",
+			"key": "captchaId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "22107d10-6f98-4a1a-b800-828f8d8a54d4",
+			"key": "token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
