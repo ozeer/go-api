@@ -8,6 +8,8 @@ require (
 	github.com/gin-contrib/pprof v1.4.0
 	github.com/gofrs/uuid/v5 v5.0.0
 	github.com/golang-jwt/jwt/v4 v4.5.0
+	github.com/gorilla/csrf v1.7.1
+	github.com/gwatts/gin-adapter v1.0.0
 	github.com/mojocn/base64Captcha v1.3.5
 	github.com/sony/sonyflake v1.2.0
 	github.com/sqids/sqids-go v0.3.5
@@ -31,6 +33,7 @@ require (
 	github.com/go-playground/validator/v10 v10.14.0 // indirect
 	github.com/goccy/go-json v0.10.2 // indirect
 	github.com/golang/freetype v0.0.0-20170609003504-e2365dfdc4a0 // indirect
+	github.com/gorilla/securecookie v1.1.1 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
