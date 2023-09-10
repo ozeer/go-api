@@ -6,8 +6,12 @@ require (
 	github.com/brianvoe/gofakeit/v6 v6.23.2
 	github.com/fsnotify/fsnotify v1.6.0
 	github.com/gin-contrib/pprof v1.4.0
+	github.com/gofrs/uuid/v5 v5.0.0
+	github.com/golang-jwt/jwt/v4 v4.5.0
+	github.com/mojocn/base64Captcha v1.3.5
 	github.com/sony/sonyflake v1.2.0
 	github.com/sqids/sqids-go v0.3.5
+	github.com/unrolled/secure v1.13.0
 	github.com/urfave/cli/v2 v2.25.7
 	go.uber.org/zap v1.25.0
 	golang.org/x/crypto v0.9.0
@@ -26,6 +30,7 @@ require (
 	github.com/go-playground/universal-translator v0.18.1 // indirect
 	github.com/go-playground/validator/v10 v10.14.0 // indirect
 	github.com/goccy/go-json v0.10.2 // indirect
+	github.com/golang/freetype v0.0.0-20170609003504-e2365dfdc4a0 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
@@ -52,6 +57,7 @@ require (
 	github.com/ugorji/go/codec v1.2.11 // indirect
 	github.com/xrash/smetrics v0.0.0-20201216005158-039620a65673 // indirect
 	golang.org/x/arch v0.3.0 // indirect
+	golang.org/x/image v0.0.0-20190802002840-cff245a6509b // indirect
 	golang.org/x/net v0.10.0 // indirect
 	golang.org/x/sys v0.8.0 // indirect
 	golang.org/x/text v0.9.0 // indirect

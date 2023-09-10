@@ -7,14 +7,12 @@ import (
 	"go.uber.org/zap"
 )
 
-type SnowFlakeApi struct{}
-
 type SnowFlakeResponse struct {
 	Id uint64 `json:"id" gorm:"comment:雪花ID"`
 }
 
 // 获取Id
-func (u *SnowFlakeApi) GenId(c *gin.Context) {
+func (u *BaseApi) GenId(c *gin.Context) {
 	id, err := global.SF.NextID()
 	if err != nil {
 		global.LOG.Error("snowflake err:", zap.Error(err))

@@ -6,6 +6,7 @@ import (
 	"github.com/gin-contrib/pprof"
 	"github.com/gin-gonic/gin"
 	"github.com/ozeer/go-api/global"
+	"github.com/ozeer/go-api/middleware"
 	"github.com/ozeer/go-api/router"
 )
 
@@ -20,11 +21,11 @@ func Routers() *gin.Engine {
 
 	// Router.Use(middleware.LoadTls())  // 如果需要使用https 请打开此中间件 然后前往 core/server.go 将启动模式 更变为 Router.RunTLS("端口","你的cre/pem文件","你的key文件")
 	// 跨域，如需跨域可以打开下面的注释
-	// Router.Use(middleware.Cors()) // 直接放行全部跨域请求
-	// Router.Use(middleware.CorsByRules()) // 按照配置的规则放行跨域请求
+	// Router.Use(middleware.Cors())        // 直接放行全部跨域请求
+	Router.Use(middleware.CorsByRules()) // 按照配置的规则放行跨域请求
 	//global.LOG.Info("use middleware cors")
 
-	// 方便统一添加路由组前缀 多服务器上线使用
+	// 方便统一添加路由组前缀 多服务器上线使用su
 	PublicGroup := Router.Group(global.CONFIG.System.RouterPrefix)
 	{
 		// 健康监测
@@ -33,15 +34,13 @@ func Routers() *gin.Engine {
 		})
 	}
 	{
-		// 开放API注册处
-
+		systemRouter.InitBaseRouter(PublicGroup) // 注册基础功能路由 不做鉴权
 	}
 	PrivateGroup := Router.Group(global.CONFIG.System.RouterPrefix)
-	// PrivateGroup.Use(middleware.JWTAuth())
+	PrivateGroup.Use(middleware.JWTAuth())
 	{
 		// 用户相关路由
 		userRouter.InitUserRouter(PrivateGroup)
-		systemRouter.InitSystemRouter(PrivateGroup)
 	}
 
 	global.LOG.Info("router register success")

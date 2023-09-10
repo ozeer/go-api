@@ -1,9 +1,11 @@
+# 验证码配置
 captcha:
     key-long: 6
     img-width: 240
     img-height: 80
     open-captcha: 0
     open-captcha-timeout: 3600
+# 跨域配置
 cors:
     mode: strict-whitelist
     whitelist:
@@ -17,6 +19,7 @@ cors:
           allow-headers: content-type
           expose-headers: Content-Length, Access-Control-Allow-Origin, Access-Control-Allow-Headers, Content-Type
           allow-credentials: true
+# 数据库列表配置
 db-list:
     - disable: true
       type: ""
@@ -34,6 +37,7 @@ db-list:
       max-open-conns: 100
       log-mode: ""
       log-zap: false
+# 邮箱配置
 email:
     to: xxx@qq.com
     port: 465
@@ -42,16 +46,20 @@ email:
     is-ssl: true
     secret: xxx
     nickname: test
+# excel配置
 excel:
     dir: ./resource/excel/
+# JWT配置
 jwt:
     signing-key: c7fe1c44-0655-4a6f-a17c-a7daa8b2178a
     expires-time: 7d
     buffer-time: 1d
     issuer: qmPlus
+# 本地配置
 local:
     path: uploads/file
     store-path: uploads/file
+# MySQL配置
 mysql:
     path: 127.0.0.1
     port: "3306"
@@ -66,21 +74,24 @@ mysql:
     max-open-conns: 100
     log-mode: error
     log-zap: false
+# Redis配置
 redis:
     db: 0
     addr: 127.0.0.1:6379
     password: "123456"
+# 系统配置
 system:
-    env: public
-    addr: 8888
-    db-type: mysql
-    oss-type: local
-    use-multipoint: false
-    use-redis: false
-    iplimit-count: 15000
-    iplimit-time: 3600
-    router-prefix: ""
+    env: public # 环境
+    addr: 8888 # 服务启动端口
+    db-type: mysql # 使用的关系数据库类型
+    oss-type: local # 使用的oss类型
+    use-multipoint: false # 是否启用多点登录拦截
+    use-redis: true # 是否使用Redis
+    iplimit-count: 15000 # 限制1小时访问15000次
+    iplimit-time: 3600 # 限制1小时内的访问
+    router-prefix: "" # 路由前缀
     app-name: "go-api"
+# 定时器
 timer:
     start: true
     spec: '@daily'
@@ -92,13 +103,14 @@ timer:
         - tableName: jwt_blacklists
           compareField: created_at
           interval: 168h
+# zap日志配置
 zap:
-    level: info
-    prefix: 'gva'
-    format: json
-    director: log
-    encode-level: LowercaseLevelEncoder
-    stacktrace-key: stacktrace
-    max-age: 0
-    show-line: true
-    log-in-console: true
+    level: info # 日志级别
+    prefix: '' # 日志前缀
+    format: json # 日志格式
+    director: log # 日志写入目录
+    encode-level: LowercaseLevelEncoder # 日志编码器类型
+    stacktrace-key: stacktrace # 栈名
+    max-age: 0 # 日志留存时间
+    show-line: true # 显示行
+    log-in-console: true # 输出控制台

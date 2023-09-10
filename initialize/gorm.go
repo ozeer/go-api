@@ -4,6 +4,7 @@ import (
 	"os"
 
 	"github.com/ozeer/go-api/global"
+	"github.com/ozeer/go-api/model/system"
 	"github.com/ozeer/go-api/model/user"
 
 	"go.uber.org/zap"
@@ -29,6 +30,7 @@ func RegisterTables() {
 		// 用户模块表
 		user.User{},
 		user.UserExtend{},
+		system.SysUser{},
 	)
 	if err != nil {
 		global.LOG.Error("register table failed", zap.Error(err))
