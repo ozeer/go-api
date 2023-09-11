@@ -24,7 +24,7 @@ var (
 
 const PAGE_LIMIT = 5000
 
-// 统计年龄分布脚本
+// 统计年龄分布脚本(指定数据范围统计)
 // run: go run enter.go AgeGroup 0 50000、go run enter.go AgeGroup 50000 100000
 func AnalysisAgeGroup(args cli.Args) {
 	begin := time.Now()
@@ -94,6 +94,7 @@ func AnalysisAgeGroup(args cli.Args) {
 	return
 }
 
+// 统计年龄分布脚本(数量少的情况下，直接查询MySQL所有数据)
 func Demo(_ cli.Args) {
 	begin := time.Now()
 

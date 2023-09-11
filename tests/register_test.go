@@ -2,6 +2,7 @@ package tests
 
 import (
 	"bytes"
+	"context"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -12,17 +13,28 @@ import (
 	"time"
 
 	"github.com/brianvoe/gofakeit/v6"
+	"github.com/google/uuid"
 	"github.com/ozeer/go-api/model/common/response"
 	"github.com/ozeer/go-api/utils"
+	"github.com/redis/go-redis/v9"
 )
 
 func TestRegister(t *testing.T) {
-	for i := 0; i < 200000; i++ {
+	rdb := redis.NewClient(&redis.Options{
+		Addr:     "localhost:6379",
+		Password: "123456",
+		DB:       0,
+	})
+
+	for i := 0; i < 1000000; i++ {
+		phone, _ := rdb.SPop(context.Background(), "phone_pool").Result()
 		// 创建一个包含JSON数据的map
 		data := map[string]interface{}{
 			// "username": "堂吉柯德",
-			"phone":    gofakeit.Phone(),
-			"password": "12345",
+			"username": uuid.New().String(),
+			// "phone":    gofakeit.Phone(),
+			"phone":    phone,
+			"password": "123456zy",
 			"email":    gofakeit.Email(),
 			"sex":      rand.New(rand.NewSource(time.Now().UnixNano())).Intn(3),
 			"birthday": utils.GenerateRandomDate(1949, 2023),
@@ -42,7 +54,19 @@ func TestRegister(t *testing.T) {
 		// 	"sex": 1,
 		// 	"birthday": "2000-09-18"
 		// }`)
-		resp, err := http.Post("http://localhost:8888/user/register", "application/json", bytes.NewBuffer(jsonData))
+		url := "http://localhost:8888/user/register"
+		contentType := "application/json"
+		client := &http.Client{}
+		req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonData))
+		if err != nil {
+			log.Println("请求失败: ", err.Error())
+			return
+		}
+		req.Header.Add("Content-Type", contentType)
+		// req.Header.Add("Authorization", "Bearer YOUR_ACCESS_TOKEN")
+		req.Header.Add("x-token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVVUlEIjoiYWExODZhMGEtY2M0OC00NTNkLWI0ZGItNGVmMzUxNzA1MmUxIiwiSUQiOjEsIlVzZXJuYW1lIjoi5aCC5ZCJS0wiLCJOaWNrTmFtZSI6IiIsIkJ1ZmZlclRpbWUiOjg2NDAwLCJpc3MiOiJxbVBsdXMiLCJhdWQiOlsiR08tQVBJIl0sImV4cCI6MTY5NDk3MzQzNCwibmJmIjoxNjk0MzY4NjM0fQ.jJwWSeAHItymbOPYAJij2dt8-4Iu2jyY9eE7Rs8zpqs")
+
+		resp, err := client.Do(req)
 
 		if err != nil {
 			log.Println("注册失败: ", err.Error())
