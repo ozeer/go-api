@@ -32,7 +32,7 @@
 							}
 						}
 					],
-					"_postman_id": "5e611d80-307b-4117-8c8f-056178ab26c6",
+					"id": "5e611d80-307b-4117-8c8f-056178ab26c6",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -57,7 +57,7 @@
 							}
 						}
 					],
-					"_postman_id": "7d357081-dc24-4229-96ac-42810cf7b33c",
+					"id": "7d357081-dc24-4229-96ac-42810cf7b33c",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -118,9 +118,12 @@
 				},
 				{
 					"name": "注册（我的）",
-					"_postman_id": "2a011db3-4497-4783-9d0c-120f9f7d05cd",
+					"id": "2a011db3-4497-4783-9d0c-120f9f7d05cd",
 					"protocolProfileBehavior": {
-						"disableBodyPruning": true
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
 					},
 					"request": {
 						"method": "POST",
@@ -129,14 +132,16 @@
 								"key": "Content-Type",
 								"value": "application/json",
 								"type": "text"
+							},
+							{
+								"key": "x-token",
+								"value": "{{token}}",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"username\": \"堂吉柯德\",\n    \"phone\": \"18701588479\",\n    \"password\": \"123489ky\",\n    \"email\": \"zhouyang@2021163.com\",\n    \"sex\": 2,\n    \"birthday\": \"2000-09-18\"\n}",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\n    \"username\": \"堂吉柯德\",\n    \"phone\": \"18701588479\",\n    \"password\": \"123489ky\",\n    \"email\": \"zhouyang@2021163.com\",\n    \"sex\": 2,\n    \"birthday\": \"2000-09-18\"\n}"
 						},
 						"url": "http://localhost:8888/user/register"
 					},
@@ -144,7 +149,7 @@
 				},
 				{
 					"name": "唯一id生成器",
-					"_postman_id": "1b77c71e-5242-4cca-8bae-1860728abc62",
+					"id": "1b77c71e-5242-4cca-8bae-1860728abc62",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -159,10 +164,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"username\": \"堂吉柯德\",\n    \"phone\": \"18701588472\",\n    \"password\": \"12345\",\n    \"email\": \"zhouyang2021@163.com\",\n    \"sex\": 1,\n    \"birthday\": \"2000-09-18\"\n}",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\n    \"username\": \"堂吉柯德\",\n    \"phone\": \"18701588472\",\n    \"password\": \"12345\",\n    \"email\": \"zhouyang2021@163.com\",\n    \"sex\": 1,\n    \"birthday\": \"2000-09-18\"\n}"
 						},
 						"url": "http://localhost:8888/base/genId"
 					},
@@ -182,7 +184,7 @@
 							}
 						}
 					],
-					"_postman_id": "cc91b67b-d482-4f96-96a2-4765b5e8cfbf",
+					"id": "cc91b67b-d482-4f96-96a2-4765b5e8cfbf",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -197,10 +199,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"username\": \"堂吉KL\",\n    \"password\": \"123489ky\",\n    \"captcha\": \"923078\",\n    \"captchaId\": \"{{captchaId}}\"\n}",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\n    \"username\": \"堂吉KL\",\n    \"password\": \"123489ky\",\n    \"captcha\": \"923078\",\n    \"captchaId\": \"{{captchaId}}\"\n}"
 						},
 						"url": "http://localhost:8888/base/login"
 					},
@@ -219,10 +218,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"username\": \"堂吉KL\",\n    \"password\": \"123489ky\",\n    \"captcha\": \"198989\",\n    \"captchaId\": \"9rJtsMC9MByXh8YCymot\"\n}",
-									"options": {
-										"raw": {}
-									}
+									"raw": "{\n    \"username\": \"堂吉KL\",\n    \"password\": \"123489ky\",\n    \"captcha\": \"198989\",\n    \"captchaId\": \"9rJtsMC9MByXh8YCymot\"\n}"
 								},
 								"url": "http://localhost:8888/base/login"
 							},
@@ -261,10 +257,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"username\": \"堂吉KL\",\n    \"password\": \"123489ky\",\n    \"captcha\": \"656995\",\n    \"captchaId\": \"{{captchaId}}\"\n}",
-									"options": {
-										"raw": {}
-									}
+									"raw": "{\n    \"username\": \"堂吉KL\",\n    \"password\": \"123489ky\",\n    \"captcha\": \"656995\",\n    \"captchaId\": \"{{captchaId}}\"\n}"
 								},
 								"url": "http://localhost:8888/base/login"
 							},
@@ -292,14 +285,14 @@
 					]
 				}
 			],
-			"_postman_id": "2fad4f21-bdf2-475a-a5c8-2d32dac6233c"
+			"id": "2fad4f21-bdf2-475a-a5c8-2d32dac6233c"
 		},
 		{
 			"name": "鉴权API",
 			"item": [
 				{
 					"name": "用户分析",
-					"_postman_id": "1d1e4ea8-3640-41a3-97b0-759bd58b8260",
+					"id": "1d1e4ea8-3640-41a3-97b0-759bd58b8260",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -319,17 +312,14 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"username\": \"堂吉柯德.KIN\",\n    \"phone\": \"18701588471\",\n    \"password\": \"12345\",\n    \"email\": \"zhouyang2021@163.com\",\n    \"sex\": 1,\n    \"birthday\": \"2000-09-18\"\n}",
-							"options": {
-								"raw": {}
-							}
+							"raw": "{\n    \"username\": \"堂吉柯德.KIN\",\n    \"phone\": \"18701588471\",\n    \"password\": \"12345\",\n    \"email\": \"zhouyang2021@163.com\",\n    \"sex\": 1,\n    \"birthday\": \"2000-09-18\"\n}"
 						},
 						"url": "http://localhost:8888/user/analysis"
 					},
 					"response": []
 				}
 			],
-			"_postman_id": "0ed6f524-d7a6-41a0-b113-e490cca2a704"
+			"id": "0ed6f524-d7a6-41a0-b113-e490cca2a704"
 		}
 	],
 	"event": [
@@ -356,23 +346,20 @@
 	],
 	"variable": [
 		{
-			"id": "839e20f3-0b6f-40be-9037-933a24c80f5a",
+			"id": "50fcf885-26d1-47cd-806d-ee611334febc",
 			"key": "variable_key",
 			"value": "",
-			"type": "string",
 			"disabled": true
 		},
 		{
-			"id": "168772ce-41e1-4dc1-940b-94a6325e1299",
+			"id": "5c1e5a01-aa2e-4931-bc82-9227abe46a06",
 			"key": "captchaId",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "22107d10-6f98-4a1a-b800-828f8d8a54d4",
+			"id": "9cad8427-32a7-42e0-835b-33c247da59f0",
 			"key": "token",
-			"value": "",
-			"type": "string"
+			"value": ""
 		}
 	]
 }
