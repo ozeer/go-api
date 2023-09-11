@@ -9,6 +9,7 @@
         "nolint",
         "piexlmax",
         "PTTL",
+        "sonyflake",
         "sqids",
         "swaggertype",
         "urfave"
