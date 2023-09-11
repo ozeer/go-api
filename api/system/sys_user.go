@@ -2,7 +2,6 @@ package system
 
 import (
 	"log"
-	"strconv"
 	"time"
 
 	"github.com/ozeer/go-api/global"
@@ -51,10 +50,7 @@ func (b *BaseApi) Login(c *gin.Context) {
 
 	var oc bool = openCaptcha == 0 || openCaptcha < interfaceToInt(v)
 
-	log.Println("前面")
-
 	if !oc || store.Verify(l.CaptchaId, l.Captcha, true) {
-		log.Println("后面")
 		u := &system.SysUser{Username: l.Username, Password: l.Password}
 		user, err := userService.Login(u)
 		if err != nil {
@@ -141,7 +137,7 @@ func (b *BaseApi) TokenNext(c *gin.Context, user system.SysUser) {
 // @Produce   application/json
 // @Param    data  body      systemReq.Register                                            true  "用户名, 昵称, 密码, 角色ID"
 // @Success  200   {object}  response.Response{data=systemRes.SysUserResponse,msg=string}  "用户注册账号,返回包括用户信息"
-// @Router   /user/admin_register [post]
+// @Router   /base/register [post]
 func (b *BaseApi) Register(c *gin.Context) {
 	var r systemReq.Register
 	err := c.ShouldBindJSON(&r)
@@ -228,40 +224,6 @@ func (b *BaseApi) GetUserList(c *gin.Context) {
 		Page:     pageInfo.Page,
 		PageSize: pageInfo.PageSize,
 	}, "获取成功", c)
-}
-
-// SetUserAuthority
-// @Tags      SysUser
-// @Summary   更改用户权限
-// @Security  ApiKeyAuth
-// @accept    application/json
-// @Produce   application/json
-// @Param     data  body      systemReq.SetUserAuth          true  "用户UUID, 角色ID"
-// @Success   200   {object}  response.Response{msg=string}  "设置用户权限"
-// @Router    /user/setUserAuthority [post]
-func (b *BaseApi) SetUserAuthority(c *gin.Context) {
-	var sua systemReq.SetUserAuth
-	err := c.ShouldBindJSON(&sua)
-	if err != nil {
-		response.FailWithMessage(err.Error(), c)
-		return
-	}
-	if UserVerifyErr := utils.Verify(sua, utils.SetUserAuthorityVerify); UserVerifyErr != nil {
-		response.FailWithMessage(UserVerifyErr.Error(), c)
-		return
-	}
-	userID := utils.GetUserID(c)
-	global.LOG.Info("userId", zap.Int("uid", int(userID)))
-	claims := utils.GetUserInfo(c)
-	j := &utils.JWT{SigningKey: []byte(global.CONFIG.JWT.SigningKey)} // 唯一签名
-	if token, err := j.CreateToken(*claims); err != nil {
-		global.LOG.Error("修改失败!", zap.Error(err))
-		response.FailWithMessage(err.Error(), c)
-	} else {
-		c.Header("new-token", token)
-		c.Header("new-expires-at", strconv.FormatInt(claims.ExpiresAt.Unix(), 10))
-		response.OkWithMessage("修改成功", c)
-	}
 }
 
 // SetUserInfo
