@@ -4,6 +4,7 @@ import (
 	"log"
 	"os"
 
+	"github.com/ozeer/go-api/cli/fake"
 	"github.com/ozeer/go-api/cli/user"
 	"github.com/ozeer/go-api/core"
 	"github.com/ozeer/go-api/global"
@@ -39,6 +40,9 @@ func main() {
 			user.CliAnalysisAgeGroup,
 			user.CliAllUser,
 			user.CliGetGroupData,
+			// fake数据生成
+			fake.CliGenFakePhone,
+			fake.CliGetFakePhone,
 		},
 	}
 
