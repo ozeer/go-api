@@ -229,7 +229,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"username\": \"堂吉KL\",\n    \"password\": \"123489ky\",\n    \"captcha\": \"185261\",\n    \"captchaId\": \"{{captchaId}}\"\n}"
+							"raw": "{\n    \"username\": \"堂吉KL\",\n    \"password\": \"123489ky\",\n    \"captcha\": \"412341\",\n    \"captchaId\": \"{{captchaId}}\"\n}"
 						},
 						"url": "http://localhost:8888/base/login"
 					},
