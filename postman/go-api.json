@@ -208,7 +208,10 @@
 							"script": {
 								"id": "8d1ac9ee-4205-4ac5-9b50-4c1acf1dd039",
 								"exec": [
-									"pm.collectionVariables.set(\"token\", pm.response.json().data.token);"
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    pm.collectionVariables.set(\"token\", pm.response.json().data.token);",
+									"});"
 								],
 								"type": "text/javascript"
 							}
@@ -229,7 +232,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"username\": \"堂吉KL\",\n    \"password\": \"123489ky\",\n    \"captcha\": \"916869\",\n    \"captchaId\": \"{{captchaId}}\"\n}"
+							"raw": "{\n    \"username\": \"堂吉KL\",\n    \"password\": \"123489ky\",\n    \"captcha\": \"900093\",\n    \"captchaId\": \"{{captchaId}}\"\n}"
 						},
 						"url": "http://localhost:8888/base/login"
 					},
