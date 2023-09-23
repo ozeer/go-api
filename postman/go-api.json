@@ -41,7 +41,37 @@
 						"header": [],
 						"url": "http://localhost:8888/base/captcha"
 					},
-					"response": []
+					"response": [
+						{
+							"id": "df8ceab5-84dd-493d-8ee0-5259abd89135",
+							"name": "获取验证码（成功）",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": "http://localhost:8888/base/captcha"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 23 Sep 2023 04:47:31 GMT"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"code\": 0,\n    \"data\": {\n        \"captchaId\": \"bRhDNgJsTySRYNuOkb1b\",\n        \"picPath\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAABQCAMAAAAQlwhOAAAA81BMVEUAAAAZbS91yYtdsXNbr3EKXiCL36Enez1Gmlxzx4lnu31ZrW9Ln2ETZykdcTNcsHIjdzlCllhhtXcFWRtMoGIBVRcJXR9NoWNdsXNqvoB90ZMtgUMBVRchdTcrf0FqvoAXay1FmVtcsHI+klQbbzEAVBaQ5KZ1yYtEmFpswIIXay1rv4EVaStkuHoidjh3y40sgEJBlVcRZSc3i00VaSsyhkhgtHYabjA5jU8idjg6jlAIXB5MoGKD15l6zpBRpWc9kVNnu32O4qQsgEJdsXMSZiiJ3Z+R5acJXR8DVxkvg0UsgEInez1munxInF4JXR8ofD7K8h8oAAAAAXRSTlMAQObYZgAABvZJREFUeJzkW31LIz0QnznrSxU5WkTKWYVqDyx3IMcJ1SpVFDyR9b7/x3nobrKZTCbZTXa39Xx+94f7kmTml5nMTNI9iMdtQp9/Gbe3TRmPYNmSLutBY76j0bI+4/eG0j4CYiz8/r5Jxt82IHOjfL9tgvEm8X/j2w4w//eZYbFDhU/Ged9cIiAS0lM0WCfpSUqnh7oN9/dLxgUvVNRwOqWMu+M8Y/eTSQzjrPjz8FCfsfqbU1LMcmo4LZYwodwFZjOHcUTvLNOMxdf3vn5I+BbMCMNyIprgh/cN5xuHLPTy/l5mXNIF47qMoXH1NPz4YRh/bzIQw+PjY+i1x8IF1SmU1rQMrBuR5gmaEb7fW2Uc30UZdzqdEk/2hygdwNIN3ibfJCg3nuobvZr9zest6T8t68nUAF431O1oK6/WcMjCNSgfrfj+6ZJxGXHi+9m9srCBiQMEUvPR0VHHFq417XJHxjfLkK5Th5PqYHK2OOxRAoc4YBplR2fMyhgt1htI8lPTAuxLakcwZXB0Fcjyq85JQP/ZHUz7corTVP7ypRHjmjoIDmrdAgI3MG/gTlAiWuBrKHtegW19RkixYQamDdyhO6qw6+GqUAEEwkjCDGNAmqgbNiUQZCyjaSlaC1dXirErzXZRblQMeIblBChOpoBGrl4fV0acsspJcU/2QZbKY2NzYTJK1YkX4E0dyisxO2v09bIGOTk5sY9qbFLj8VhvkKj9hcHKm5ubG1xU5YHVMDs7O973L80pOhKJhe38YluY1iyA9gaRDmYe3MBisQiv5dy+AQu/vHTBmJUHcpzSDzRXEP2a1x6L8HZJ2TfgAu3wRTwn12DFJRZ3WT8zCygdbrgLu+IIpLBw91Hr/Jwyti1MtBESBnVzRLn6cnp4bVy1vWwLiOe6LrQs7BrMVd8h6C9OwDeuPdp6GLOzKaOv1coxjFQv8tpDkue6yqlqvreWRIw2ZfI4rKVTTPDyEw5lec7cnZ6e5uL29vbWU2oRtmi5dCBGiz5rV5yHh17GrN+pergnelIn0EmFmgisFS11CfFFxEOPT4sLtUz466kuJU/Tejnx13RwnugIEExA0qtS2NoIS3GK1pVua6HOoBFPSmS0rStc1KJLsPM8q5a2W46ETTFtbu2hxdzkFCW2e7TMzAd+UAVk40DbjUYjYck6KM7O885njiSnCKPuEdYynaA7lltuTJBbXlkYdBktWjdXq/h1BBHPzs6YnEAKD1kY6Za0DSA/zJhMJoSPK51tEi37ql9HVi1svkM3+wRqPPt5McsZoFAJ/E1hnFtnbghNEOTNEJvvctW69TInMBwO5QBpyItBslx0mGUZPTnUfP+mMF6NMJ/PjbXNdogeLRu2ZSu9cRKHtGZg6GQtlvSPlTHh0gxgeUVGRjbLOolvLnmOfENMj6X0XsOYXrubeSNRHtgP+E7D3B4fHxeDXl5eQmgm3ZFq8JM2Qeju5EoLm62VvEP2Uh4MBtZgTCa9O1ZTsLwsZYVJ1ONK9OSPxDhV1p8YlCFriAgDctLp7jysJYyIF4jL5VKYwN18UQDAT78GwRmQdEPh6zJEv8sKIwoRzorrvFBjaf/i4mKGS0He7u7uKuwB/PzpY4xh0iETCypX0iUjuN0BPT/foZXMVxaezWbi+qy2cLWJkT/QJub6Nsv2yCJ7yMSIOKPvv8YLc4ktjSI8cbpGiC9uxGM88DGmBganBvr6NZoxOAtrab5atw87zFRb2oQN/FsWKSUBYS8KPC9wn4/nq+MnuV/SN0YJWiwSzcMm/v1bYixRxlqrQwgCKfCOgmRb5P6w7TMKhcjXI7FysKCu0RDHITEUSPKgl00kVj/RsVcps4+1ZqWucA9lYmekMWaQQPjallgDeXZVyL/Wlft5v/z0wls/UAtvgYmcg8Egnu/1tSWxTvehaY37vka+Lz/D8Je8ysRbW4pxfj9IcK5rPm6vvm5BYSl8KyivXmyRqriVldTr9WqNI6WydhDahiCE5iRNXK+ua0fKfIvQAeX1hREbhQgg9sNbOamAr8TbWwRjIMdEtlx1ESe7Cv1+L3xaDe6EjCpHjeELdKdgdm93bWZ9il6vB/4TAsnbihPhlrESs02o393ddUA2R88bGnwrqEW+W+R6e3vbODfedURXA01p/lqm/+gF9BwpVWXaFQ4Atp2PkzqFOhPB19dXvXiq5D6x++fnaMb64uDgILJrY5zp/P5a3FcHjKcnh3G6+K74jn0vip9e6AFI9WCc7wfEeOxnXF6FT0Bz9D3PveX2xuDlG4V+X2ZM/vtjq/jVyagxWK+Ff/3aPOP1oopv0unaP4yU89OPh0VE20/BdxHD+DMghe+8Az1sXHcuIQbFVwNdwjoW/AD4OBb+LwAA//8bVUFMZnWgSAAAAABJRU5ErkJggg==\",\n        \"captchaLength\": 6,\n        \"openCaptcha\": true\n    },\n    \"msg\": \"验证码获取成功\"\n}"
+						}
+					]
 				},
 				{
 					"name": "用户注册",
@@ -199,7 +229,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"username\": \"堂吉KL\",\n    \"password\": \"123489ky\",\n    \"captcha\": \"923078\",\n    \"captchaId\": \"{{captchaId}}\"\n}"
+							"raw": "{\n    \"username\": \"堂吉KL\",\n    \"password\": \"123489ky\",\n    \"captcha\": \"185261\",\n    \"captchaId\": \"{{captchaId}}\"\n}"
 						},
 						"url": "http://localhost:8888/base/login"
 					},
@@ -346,18 +376,15 @@
 	],
 	"variable": [
 		{
-			"id": "50fcf885-26d1-47cd-806d-ee611334febc",
 			"key": "variable_key",
 			"value": "",
 			"disabled": true
 		},
 		{
-			"id": "5c1e5a01-aa2e-4931-bc82-9227abe46a06",
 			"key": "captchaId",
 			"value": ""
 		},
 		{
-			"id": "9cad8427-32a7-42e0-835b-33c247da59f0",
 			"key": "token",
 			"value": ""
 		}
