@@ -26,8 +26,6 @@ func main() {
 	zap.ReplaceGlobals(global.LOG)
 	// gorm连接数据库
 	global.DB = initialize.Gorm()
-	// 初始化定时器
-	initialize.Timer()
 	// 初始化数据库
 	initialize.DBList()
 	// 初始化redis服务

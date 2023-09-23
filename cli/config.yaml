@@ -1,10 +1,3 @@
-# 验证码配置
-captcha:
-    key-long: 6
-    img-width: 240
-    img-height: 80
-    open-captcha: 0
-    open-captcha-timeout: 3600
 # 跨域配置
 cors:
     mode: strict-whitelist
@@ -91,18 +84,6 @@ system:
     iplimit-time: 3600 # 限制1小时内的访问
     router-prefix: "" # 路由前缀
     app-name: "go-api"
-# 定时器
-timer:
-    start: true
-    spec: '@daily'
-    with_seconds: false
-    detail:
-        - tableName: sys_operation_records
-          compareField: created_at
-          interval: 2160h
-        - tableName: jwt_blacklists
-          compareField: created_at
-          interval: 168h
 # zap日志配置
 zap:
     level: info # 日志级别
