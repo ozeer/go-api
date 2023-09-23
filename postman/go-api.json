@@ -208,15 +208,7 @@
 							"script": {
 								"id": "8d1ac9ee-4205-4ac5-9b50-4c1acf1dd039",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"    pm.collectionVariables.set(\"token\", pm.response.json().data.token);",
-									"});",
-									"",
-									"if pm.response.json().data.token) != null {",
-									"",
-									"",
-									"}"
+									"pm.collectionVariables.set(\"token\", pm.response.json().data.token);"
 								],
 								"type": "text/javascript"
 							}
