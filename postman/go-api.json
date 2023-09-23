@@ -346,18 +346,15 @@
 	],
 	"variable": [
 		{
-			"id": "50fcf885-26d1-47cd-806d-ee611334febc",
 			"key": "variable_key",
 			"value": "",
 			"disabled": true
 		},
 		{
-			"id": "5c1e5a01-aa2e-4931-bc82-9227abe46a06",
 			"key": "captchaId",
 			"value": ""
 		},
 		{
-			"id": "9cad8427-32a7-42e0-835b-33c247da59f0",
 			"key": "token",
 			"value": ""
 		}
