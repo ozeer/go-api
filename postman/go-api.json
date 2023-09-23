@@ -211,7 +211,12 @@
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
 									"    pm.collectionVariables.set(\"token\", pm.response.json().data.token);",
-									"});"
+									"});",
+									"",
+									"if pm.response.json().data.token) != null {",
+									"",
+									"",
+									"}"
 								],
 								"type": "text/javascript"
 							}
