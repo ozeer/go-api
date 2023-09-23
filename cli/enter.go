@@ -37,8 +37,8 @@ func main() {
 		Commands: []*cli.Command{
 			// 在这里添加其他命令，根据需要
 			user.CliAnalysisAgeGroup,
-			user.CliDemo,
-			user.Test,
+			user.CliAllUser,
+			user.CliGetGroupData,
 		},
 	}
 

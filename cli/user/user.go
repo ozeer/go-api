@@ -17,9 +17,9 @@ import (
 )
 
 var (
-	CliAnalysisAgeGroup = base.CreateCommand("AgeGroup", "用户年龄分组统计脚本", AnalysisAgeGroup)
-	CliDemo             = base.CreateCommand("Demo", "用户年龄分组统计脚本", Demo)
-	Test                = base.CreateCommand("Test", "用户年龄分组统计脚本", OK)
+	CliAnalysisAgeGroup = base.CreateCommand("AgeGroup", "生成用户年龄分组统计数据", AnalysisAgeGroup)
+	CliAllUser          = base.CreateCommand("AllAgeGroup", "生成全部用户年龄分组统计数据", AnalysisAllUser)
+	CliGetGroupData     = base.CreateCommand("GetAgeGroup", "获取用户年龄分组统计数据", GetUserGroupData)
 )
 
 const PAGE_LIMIT = 5000
@@ -95,7 +95,7 @@ func AnalysisAgeGroup(args cli.Args) {
 }
 
 // 统计年龄分布脚本(数量少的情况下，直接查询MySQL所有数据)
-func Demo(_ cli.Args) {
+func AnalysisAllUser(_ cli.Args) {
 	begin := time.Now()
 
 	// 查询
@@ -150,11 +150,11 @@ func Demo(_ cli.Args) {
 }
 
 // go run enter.go Test
-func OK(_ cli.Args) {
+func GetUserGroupData(_ cli.Args) {
 	data, err := global.REDIS.HGetAll(context.Background(), cache.USER_ANALYSIS_AGE).Result()
 
 	if err != nil {
-		global.LOG.Error("获取用户分心数据失败", zap.Error(err))
+		global.LOG.Error("获取用户分组数据失败", zap.Error(err))
 	}
 
 	log.Println(data)

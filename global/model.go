@@ -19,8 +19,8 @@ const (
 
 type MODEL struct {
 	ID        uint           `json:"id" gorm:"primarykey;comment:主键ID"` // 主键ID
-	CreatedAt LocalTime      `json:"created_at" gorm:"comment:创建时间"`    // 创建时间
-	UpdatedAt LocalTime      `json:"updated_at" gorm:"comment:更新时间"`    // 更新时间
+	CreatedAt *LocalTime     `json:"created_at" gorm:"comment:创建时间"`    // 创建时间
+	UpdatedAt *LocalTime     `json:"updated_at" gorm:"comment:更新时间"`    // 更新时间
 	DeletedAt gorm.DeletedAt `json:"-" gorm:"index;comment:删除时间"`       // 删除时间
 }
 
