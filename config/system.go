@@ -9,6 +9,7 @@ type System struct {
 	UseRedis      bool   `mapstructure:"use-redis" json:"use-redis" yaml:"use-redis"`                // 使用redis
 	LimitCountIP  int    `mapstructure:"iplimit-count" json:"iplimit-count" yaml:"iplimit-count"`
 	LimitTimeIP   int    `mapstructure:"iplimit-time" json:"iplimit-time" yaml:"iplimit-time"`
-	RouterPrefix  string `mapstructure:"router-prefix" json:"router-prefix" yaml:"router-prefix"`
-	AppName       string `mapstructure:"app-name" json:"app-name" yaml:"app-name"`
+	RouterPrefix  string `mapstructure:"router-prefix" json:"router-prefix" yaml:"router-prefix"` // 路由前缀
+	AppName       string `mapstructure:"app-name" json:"app-name" yaml:"app-name"`                // APP名字
+	GinMode       string `mapstructure:"gin_mode" json:"gin_mode" yaml:"gin_mode"`                // Gin_Mode模式
 }

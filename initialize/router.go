@@ -12,7 +12,7 @@ import (
 
 // 初始化总路由
 func Routers() *gin.Engine {
-	// gin.SetMode(gin.ReleaseMode)
+	gin.SetMode(global.CONFIG.System.GinMode)
 	Router := gin.Default()
 	pprof.Register(Router)
 
