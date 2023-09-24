@@ -82,8 +82,8 @@ func AnalysisAgeGroup(args cli.Args) {
 
 			if iQueryCount >= PAGE_LIMIT {
 				fmt.Println(counter - 1)
-				// 查累了，休息1s
-				time.Sleep(1 * time.Second)
+				// 查累了，休息一下
+				// time.Sleep(100 * time.Millisecond)
 				iQueryCount = 0
 			}
 		}
