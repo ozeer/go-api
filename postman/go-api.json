@@ -39,7 +39,7 @@
 					"request": {
 						"method": "POST",
 						"header": [],
-						"url": "http://localhost:8888/base/captcha"
+						"url": "{{domain}}/base/captcha"
 					},
 					"response": [
 						{
@@ -103,7 +103,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:8888/base/register"
+						"url": "{{domain}}/base/register"
 					},
 					"response": [
 						{
@@ -173,7 +173,7 @@
 							"mode": "raw",
 							"raw": "{\n    \"username\": \"堂吉柯德\",\n    \"phone\": \"18701588479\",\n    \"password\": \"123489ky\",\n    \"email\": \"zhouyang@2021163.com\",\n    \"sex\": 2,\n    \"birthday\": \"2000-09-18\"\n}"
 						},
-						"url": "http://localhost:8888/user/register"
+						"url": "{{domain}}/user/register"
 					},
 					"response": []
 				},
@@ -196,7 +196,30 @@
 							"mode": "raw",
 							"raw": "{\n    \"username\": \"堂吉柯德\",\n    \"phone\": \"18701588472\",\n    \"password\": \"12345\",\n    \"email\": \"zhouyang2021@163.com\",\n    \"sex\": 1,\n    \"birthday\": \"2000-09-18\"\n}"
 						},
-						"url": "http://localhost:8888/base/genId"
+						"url": "{{domain}}/base/genId"
+					},
+					"response": []
+				},
+				{
+					"name": "健康监测",
+					"id": "096e0c8f-e85a-4ef1-b8eb-7ae40543507d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"堂吉柯德\",\n    \"phone\": \"18701588472\",\n    \"password\": \"12345\",\n    \"email\": \"zhouyang2021@163.com\",\n    \"sex\": 1,\n    \"birthday\": \"2000-09-18\"\n}"
+						},
+						"url": "{{domain}}/health"
 					},
 					"response": []
 				},
@@ -231,7 +254,7 @@
 							"mode": "raw",
 							"raw": "{\n    \"username\": \"堂吉KL\",\n    \"password\": \"123489ky\",\n    \"captcha\": \"412341\",\n    \"captchaId\": \"{{captchaId}}\"\n}"
 						},
-						"url": "http://localhost:8888/base/login"
+						"url": "{{domain}}/base/login"
 					},
 					"response": [
 						{
@@ -344,7 +367,7 @@
 							"mode": "raw",
 							"raw": "{\n    \"username\": \"堂吉柯德.KIN\",\n    \"phone\": \"18701588471\",\n    \"password\": \"12345\",\n    \"email\": \"zhouyang2021@163.com\",\n    \"sex\": 1,\n    \"birthday\": \"2000-09-18\"\n}"
 						},
-						"url": "http://localhost:8888/user/analysis"
+						"url": "{{domain}}/user/analysis"
 					},
 					"response": []
 				}
@@ -356,7 +379,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "716b229b-fef5-49dc-872a-1eb59298510d",
+				"id": "ce61eb56-c4cb-4401-9ff1-aa4802ca16a5",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -366,7 +389,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "b4996a87-8bb6-469c-ba40-61287aaa0e30",
+				"id": "584d4033-485b-4e02-aa07-a4ecb14cda15",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -387,6 +410,11 @@
 		{
 			"key": "token",
 			"value": ""
+		},
+		{
+			"key": "domain",
+			"value": "",
+			"type": "string"
 		}
 	]
 }
