@@ -410,7 +410,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"key1\": \"value1\",\n    \"key2\": \"value2\"\n}",
+							"raw": "{\n    \"key3\": \"value1\",\n    \"key4\": \"value2\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
