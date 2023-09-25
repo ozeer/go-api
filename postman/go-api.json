@@ -373,6 +373,56 @@
 				}
 			],
 			"id": "0ed6f524-d7a6-41a0-b113-e490cca2a704"
+		},
+		{
+			"name": "测试",
+			"item": [
+				{
+					"name": "接口1",
+					"id": "5a497e3c-3f9c-495b-8167-0d20765a9a7a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"key1\": \"value1\",\n    \"key2\": \"value2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/endpoint1"
+					},
+					"response": []
+				},
+				{
+					"name": "接口1 Copy",
+					"id": "d4f95542-5ecf-4e30-98ad-215bd99949c8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"key1\": \"value1\",\n    \"key2\": \"value2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/endpoint1"
+					},
+					"response": []
+				}
+			],
+			"id": "612b3cce-5368-4358-a6dd-4880641d6b0c"
 		}
 	],
 	"event": [
