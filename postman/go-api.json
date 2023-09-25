@@ -388,7 +388,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"key1\": \"value1\",\n    \"key2\": \"value2\"\n}",
+							"raw": "{\n    \"key1\": \"中国\",\n    \"key2\": \"美国\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -410,7 +410,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"key3\": \"value1\",\n    \"key4\": \"value2\"\n}",
+							"raw": "{\n    \"key3\": \"唐朝\",\n    \"key4\": \"宋朝\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
