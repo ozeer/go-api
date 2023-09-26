@@ -5,10 +5,12 @@ import (
 	"encoding/json"
 	"errors"
 	"io"
-	"log"
 	"net/http"
 	"sync"
 	"time"
+
+	"github.com/ozeer/go-api/global"
+	"go.uber.org/zap"
 )
 
 type MultiRequester struct {
@@ -76,7 +78,7 @@ func (mr *MultiRequester) Exec() {
 
 			if err != nil {
 				// 处理请求错误
-				log.Println("Error executing request:", err)
+				global.LOG.Error("Client executing request error", zap.Error(err))
 				return
 			}
 
@@ -94,7 +96,8 @@ func (mr *MultiRequester) doRequest(req *http.Request) (map[string]interface{}, 
 	resp, err := mr.client.Do(req)
 	if err != nil {
 		// Handle the error
-		log.Println("client do err: ", err)
+		global.LOG.Error("Client doRequest error", zap.Error(err))
+
 		return nil, err
 	}
 
@@ -103,7 +106,8 @@ func (mr *MultiRequester) doRequest(req *http.Request) (map[string]interface{}, 
 	body, err := io.ReadAll(resp.Body)
 	if err != nil {
 		// Handle the error
-		log.Println("client read resp err: ", err)
+		global.LOG.Error("Client read resp error", zap.Error(err))
+
 		return nil, err
 	}
 
@@ -115,7 +119,8 @@ func (mr *MultiRequester) doRequest(req *http.Request) (map[string]interface{}, 
 	var responseMap map[string]interface{}
 	err = json.Unmarshal(body, &responseMap)
 	if err != nil {
-		log.Println("client unmarshal err: ", err)
+		global.LOG.Error("Client unmarshal error", zap.Error(err))
+
 		return nil, err
 	}
 
