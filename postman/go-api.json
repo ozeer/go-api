@@ -423,6 +423,25 @@
 				}
 			],
 			"id": "612b3cce-5368-4358-a6dd-4880641d6b0c"
+		},
+		{
+			"name": "demo",
+			"item": [
+				{
+					"name": "多API请求",
+					"id": "072ed503-a75a-4128-b854-69656efee9ff",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{domain}}/demo/multi_request"
+					},
+					"response": []
+				}
+			],
+			"id": "d07534d3-51da-4831-a3e3-b5a3a1b7cb44"
 		}
 	],
 	"event": [
