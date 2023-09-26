@@ -1,7 +1,9 @@
 {
     "go.testTimeout": "8h",
     "cSpell.words": [
+        "andelf",
         "brianvoe",
+        "CURLM",
         "gofakeit",
         "gofrs",
         "gwatts",
