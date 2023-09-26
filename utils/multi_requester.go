@@ -96,8 +96,6 @@ func (mr *MultiRequester) doRequest(req *http.Request) (map[string]interface{}, 
 	resp, err := mr.client.Do(req)
 	if err != nil {
 		// Handle the error
-		global.LOG.Error("Client doRequest error", zap.Error(err))
-
 		return nil, err
 	}
 
