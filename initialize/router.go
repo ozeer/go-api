@@ -18,6 +18,7 @@ func Routers() *gin.Engine {
 
 	userRouter := router.RouterGroupApp.User
 	systemRouter := router.RouterGroupApp.System
+	demoRouter := router.RouterGroupApp.Demo
 
 	engine.Use(middleware.CsrfProtect())
 	// Router.Use(middleware.LoadTls())  // 如果需要使用https 请打开此中间件 然后前往 core/server.go 将启动模式 更变为 Router.RunTLS("端口","你的cre/pem文件","你的key文件")
@@ -36,6 +37,7 @@ func Routers() *gin.Engine {
 	}
 	{
 		systemRouter.InitBaseRouter(PublicGroup) // 注册基础功能路由 不做鉴权
+		demoRouter.InitDemoRouter(PublicGroup)
 	}
 	PrivateGroup := engine.Group(global.CONFIG.System.RouterPrefix)
 	PrivateGroup.Use(middleware.JWTAuth())
@@ -53,5 +55,5 @@ func getMode() string {
 	if mode == "" {
 		return gin.DebugMode
 	}
-	return gin.ReleaseMode
+	return gin.DebugMode
 }

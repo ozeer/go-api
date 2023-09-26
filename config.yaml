@@ -92,7 +92,7 @@ system:
     iplimit-time: 3600 # 限制1小时内的访问
     router-prefix: "" # 路由前缀
     app-name: "go-api"
-    gin_mode: "release" # GIN_MODE: debug、release、test
+    gin_mode: "debug" # GIN_MODE: debug、release、test
 # 定时器
 timer:
     start: true

@@ -50,9 +50,6 @@ func handleEndpoint1(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// 延迟1秒
-	time.Sleep(1 * time.Second)
-
 	// 处理请求参数并生成响应
 	message := fmt.Sprintf("Received request with key1=%s and key2=%s", reqBody.Key1, reqBody.Key2)
 	response := ResponseBody{Message: message, Name: reqBody.Key1, City: reqBody.Key2}
@@ -76,8 +73,8 @@ func handleEndpoint2(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// 延迟8秒
-	time.Sleep(8 * time.Second)
+	// 延迟3秒
+	time.Sleep(2 * time.Second)
 
 	// 处理请求参数并生成响应
 	message := fmt.Sprintf("Received request with key3=%s and key4=%s at endpoint2", reqBody.Key3, reqBody.Key4)
