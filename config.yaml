@@ -110,7 +110,7 @@ zap:
     level: info # 日志级别
     prefix: '' # 日志前缀
     format: json # 日志格式
-    director: log # 日志写入目录
+    director: /Users/zhouyang/learn/resource_config/logs/go-api # 日志写入目录
     encode-level: LowercaseLevelEncoder # 日志编码器类型
     stacktrace-key: stacktrace # 栈名
     max-age: 0 # 日志留存时间
