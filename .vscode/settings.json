@@ -1,12 +1,16 @@
 {
     "go.testTimeout": "8h",
     "cSpell.words": [
+        "alphanumunicode",
+        "alphaunicode",
         "andelf",
         "brianvoe",
         "CURLM",
         "gofakeit",
         "gofrs",
         "gwatts",
+        "hexcolor",
+        "iscolor",
         "mojocn",
         "nolint",
         "piexlmax",
