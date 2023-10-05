@@ -1,11 +1,10 @@
 package main
 
 import (
-	"go.uber.org/zap"
-
 	"github.com/ozeer/go-api/core"
 	"github.com/ozeer/go-api/global"
 	"github.com/ozeer/go-api/initialize"
+	"go.uber.org/zap"
 )
 
 //go:generate go env -w GO111MODULE=on
