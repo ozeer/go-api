@@ -26,16 +26,17 @@ func Viper(path ...string) *viper.Viper {
 		flag.Parse()
 		if config == "" { // 判断命令行参数是否为空
 			if configEnv := os.Getenv(internal.ConfigEnv); configEnv == "" { // 判断 internal.ConfigEnv 常量存储的环境变量是否为空
+				logStr := "您正在使用gin模式的%s环境名称,config的路径为%s\n"
 				switch gin.Mode() {
 				case gin.DebugMode:
 					config = internal.ConfigDefaultFile
-					log.Printf("您正在使用gin模式的%s环境名称,config的路径为%s\n", gin.EnvGinMode, internal.ConfigDefaultFile)
+					log.Printf(logStr, gin.EnvGinMode, internal.ConfigDefaultFile)
 				case gin.ReleaseMode:
 					config = internal.ConfigReleaseFile
-					log.Printf("您正在使用gin模式的%s环境名称,config的路径为%s\n", gin.EnvGinMode, internal.ConfigReleaseFile)
+					log.Printf(logStr, gin.EnvGinMode, internal.ConfigReleaseFile)
 				case gin.TestMode:
 					config = internal.ConfigTestFile
-					log.Printf("您正在使用gin模式的%s环境名称,config的路径为%s\n", gin.EnvGinMode, internal.ConfigTestFile)
+					log.Printf(logStr, gin.EnvGinMode, internal.ConfigTestFile)
 				}
 			} else { // internal.ConfigEnv 常量存储的环境变量不为空 将值赋值于config
 				config = configEnv
