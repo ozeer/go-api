@@ -19,12 +19,11 @@ import (
 )
 
 var (
-	DB     *gorm.DB
-	DBList map[string]*gorm.DB
-	REDIS  *redis.Client
-	CONFIG config.Server
-	VP     *viper.Viper
-	// LOG    *oplogging.Logger
+	DB                  *gorm.DB
+	DBList              map[string]*gorm.DB
+	REDIS               *redis.Client
+	CONFIG              config.Server
+	VP                  *viper.Viper
 	LOG                 *zap.Logger
 	Timer               timer.Timer = timer.NewTimerTask()
 	Concurrency_Control             = &singleflight.Group{}
